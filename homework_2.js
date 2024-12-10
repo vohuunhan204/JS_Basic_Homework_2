@@ -109,13 +109,13 @@ var Library = /** @class */ (function () {
     function Library() {
         this.books = [];
     }
-    Library.prototype.addBook = function (book) {
+    Library.prototype.AddBook = function (book) {
         this.books.push(book);
     };
-    Library.prototype.removeBook = function (ISBN) {
+    Library.prototype.RemoveBook = function (ISBN) {
         this.books = this.books.filter(function (book) { return book.ISBN !== ISBN; });
     };
-    Library.prototype.findBook = function (title) {
+    Library.prototype.FindBook = function (title) {
         for (var _i = 0, _a = this.books; _i < _a.length; _i++) {
             var book = _a[_i];
             if (book.title === title) {
@@ -124,7 +124,7 @@ var Library = /** @class */ (function () {
         }
         return undefined;
     };
-    Library.prototype.listBooks = function () {
+    Library.prototype.ListBooks = function () {
         if (this.books.length === 0) {
             console.log("Thư viện hiện không có sách nào.");
         }
@@ -139,12 +139,12 @@ var Library = /** @class */ (function () {
 var library = new Library();
 var book1 = new Book("To Kill a Mockingbird", "Harper Lee", "978-0-06-112008-4");
 var book2 = new Book("1984", "George Orwell", "978-0-452-28423-4");
-library.addBook(book1);
-library.addBook(book2);
+library.AddBook(book1);
+library.AddBook(book2);
 console.log("Danh sách sách trong thư viện:");
-library.listBooks();
+library.ListBooks();
 console.log("\nTìm sách với tên '1984':");
-var foundBook = library.findBook("1984");
+var foundBook = library.FindBook("1984");
 if (foundBook) {
     console.log("T\u00ECm th\u1EA5y s\u00E1ch: Title: ".concat(foundBook.title, ", Author: ").concat(foundBook.author, ", ISBN: ").concat(foundBook.ISBN));
 }
@@ -152,9 +152,9 @@ else {
     console.log("Không tìm thấy sách.");
 }
 console.log("\nXóa sách với ISBN '978-0-452-28423-4':");
-library.removeBook("978-0-452-28423-4");
+library.RemoveBook("978-0-452-28423-4");
 console.log("Danh sách sách sau khi xóa:");
-library.listBooks();
+library.ListBooks();
 //------------------------------------------------------------------------------------------------------------------------------------------------
 // Bài Tập 4: Hình học 
 // Tạo lớp Shape (trừu tượng) với phương thức calculateArea(). 
@@ -175,7 +175,7 @@ var Rectangle = /** @class */ (function (_super) {
         _this.height = height;
         return _this;
     }
-    Rectangle.prototype.calculateArea = function () {
+    Rectangle.prototype.CalculateArea = function () {
         return this.width * this.height;
     };
     return Rectangle;
@@ -187,7 +187,7 @@ var Circle = /** @class */ (function (_super) {
         _this.radius = radius;
         return _this;
     }
-    Circle.prototype.calculateArea = function () {
+    Circle.prototype.CalculateArea = function () {
         return Math.PI * Math.pow(this.radius, 2);
     };
     return Circle;
@@ -197,7 +197,7 @@ var shapes = [
     new Circle(7)
 ];
 shapes.forEach(function (shape) {
-    console.log("Di\u1EC7n t\u00EDch h\u00ECnh l\u00E0: ".concat(shape.calculateArea()));
+    console.log("Di\u1EC7n t\u00EDch h\u00ECnh l\u00E0: ".concat(shape.CalculateArea()));
 });
 //------------------------------------------------------------------------------------------------------------------------------------------------
 // Bài Tập 5: Quản lý nhân viên 
